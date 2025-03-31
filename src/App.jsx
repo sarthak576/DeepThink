@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import './App.css'
 import axios from 'axios';
+import { Button, Container, Typography } from '@mui/material';
 
 function App() {
   const [question,setQuestion] = useState("");
@@ -21,15 +22,17 @@ function App() {
    setAnswer(response['data']['candidates'][0]['content']['parts'][0]['text']);
   }
   return (
-    <>
-     <div className="w-full"></div> 
-   <h1 className="bg-blue-500">Deep Think</h1>
+    <Container sx={{maxWidth:"md",alignItems:"center",textAlign:'center'
+    }}>
+   <Typography  variant="h3" className="bg-blue-500"  >Deep Think</Typography>
    <textarea className='border rouded w-full' value={question} onChange={(e)=>setQuestion(e.target.value) } cols="30" rows="10" placeholder='Ask Me Anything... '></textarea>
-   <button onClick={generateAnswer}>Generate Answer</button>
-   <pre>{answer}</pre>
    
-    </>
-  )
+   <Button onClick={generateAnswer} variant='contained'>Generate Answer</Button>
+  
+   <pre style={{ width: "100%", maxHeight: "300px", overflowY: "auto", padding: "8px", border: "1px solid #ccc", borderRadius: "4px", textAlign: "left" }}>{answer}</pre>
+  
+   </Container>
+     )
 }
 
 export default App
