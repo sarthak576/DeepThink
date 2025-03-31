@@ -22,19 +22,33 @@ function App() {
    setAnswer(response['data']['candidates'][0]['content']['parts'][0]['text']);
   }
   return (
-    <Container sx={{maxWidth:"md",alignItems:"center",textAlign:'center'
-    }}>
-   <Typography  variant="h3" className="bg-blue-500" sx={{color:"white"}} >Deep Think</Typography>
+    <Container sx={{maxWidth:"md",textAlign:'center', p:2}}>
+
+
+<Typography variant="h3" className="bg-blue-500" sx={{ mb: 2 , color:"white"}}>Deep Think</Typography>
 
 
 
-   <textarea className='border rouded w-full' value={question} onChange={(e)=>setQuestion(e.target.value) } cols="30" rows="10" placeholder='Ask Me Anything... ' style={{color:"white"}}></textarea>
-   
-   <Button onClick={generateAnswer} variant='contained' sx={{p:1 , m:2}} >Generate Answer</Button>
+<textarea
+    className="border rounded w-full"
+    style={{
+      width: "100%", minHeight: "40px", borderRadius: "8px", padding: "8px",
+      transition: "0.2s", outline: "none", boxShadow: "none"
+    }}
+    onFocus={(e) => e.target.style.boxShadow = "0 0 5px rgba(0,0,255,0.5)"}
+    onBlur={(e) => e.target.style.boxShadow = "none"}
+    value={question} onChange={(e) => setQuestion(e.target.value)}
+    placeholder="Ask Me Anything..."
+  />   
+  <Button onClick={generateAnswer} variant="contained" sx={{ mt: 2,fontWeight: "bold" ,mb:2 }}>Generate </Button>
   
-   <pre style={{ width: "100%", maxHeight: "300px", overflowY: "auto", padding: "8px", border: "1px solid #ccc", borderRadius: "4px", textAlign: "left", color:"white"}}>{answer
-      .replace(/\*\*\s?/g, '')                   // Remove bold (**)
-      .replace(/\*\s?/g, '- ')}</pre>
+  <pre style={{ 
+    width: "100%", maxHeight: "300px", overflowY: "auto", padding: "8px",
+    border: "1px solid #ccc", borderRadius: "8px", textAlign: "left", 
+    whiteSpace: "pre-wrap", fontSize: "14px", wordBreak: "break-word"
+  }}>
+    {answer.replace(/\*\*\s?/g, '').replace(/\*\s?/g, '- ')}
+  </pre>
   
    </Container>
      )
