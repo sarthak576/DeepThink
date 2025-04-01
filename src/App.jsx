@@ -1,6 +1,8 @@
 import { useState } from 'react'
 import './App.css'
 import axios from 'axios';
+import ReactMarkdown from "react-markdown";
+
 import { Button, Container, Typography } from '@mui/material';
 
 function App() {
@@ -30,25 +32,38 @@ function App() {
 
 
 <textarea
-    className="border rounded w-full"
-    style={{
-      width: "100%", minHeight: "40px", borderRadius: "8px", padding: "8px",
-      transition: "0.2s", outline: "none", boxShadow: "none"
-    }}
-    onFocus={(e) => e.target.style.boxShadow = "0 0 5px rgba(0,0,255,0.5)"}
-    onBlur={(e) => e.target.style.boxShadow = "none"}
-    value={question} onChange={(e) => setQuestion(e.target.value)}
-    placeholder="Ask Me Anything..."
-  />   
+  className="border rounded w-full"
+  style={{
+    width: "100%", minHeight: "40px", borderRadius: "8px", padding: "8px",
+    transition: "0.2s", outline: "none", boxShadow: "none", fontSize: "16px"
+  }}
+  onFocus={(e) => e.target.style.boxShadow = "0 0 5px rgba(0,0,255,0.5)"}
+  onBlur={(e) => e.target.style.boxShadow = "none"}
+  value={question}
+  onChange={(e) => setQuestion(e.target.value)}
+  onKeyDown={(e) => { if (e.key === "Enter" && !e.shiftKey) { e.preventDefault(); generateAnswer(); }}}
+  placeholder="Ask Me Anything..."
+/>
+ 
   <Button onClick={generateAnswer} variant="contained" sx={{ mt: 2,fontWeight: "bold" ,mb:2 }}>Generate </Button>
   
-  <pre style={{ 
-    width: "100%", maxHeight: "300px", overflowY: "auto", padding: "8px",
-    border: "1px solid #ccc", borderRadius: "8px", textAlign: "left", 
-    whiteSpace: "pre-wrap", fontSize: "14px", wordBreak: "break-word"
-  }}>
-    {answer.replace(/\*\*\s?/g, '').replace(/\*\s?/g, '- ')}
-  </pre>
+  <div
+        style={{
+          width: "100%",
+          maxHeight: "300px",
+          overflowY: "auto",
+          padding: "12px",
+          border: "1px solid #ccc",
+          borderRadius: "8px",
+          textAlign: "left",
+          fontSize: "18px",
+          wordBreak: "break-word",
+          lineHeight: "1.6",
+        }}
+      >
+        <ReactMarkdown>{answer}</ReactMarkdown>
+      </div>
+
   
    </Container>
      )
