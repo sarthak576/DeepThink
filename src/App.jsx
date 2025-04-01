@@ -34,7 +34,7 @@ function App() {
 <textarea
   className="border rounded w-full"
   style={{
-    width: "100%", minHeight: "40px", borderRadius: "8px", padding: "8px",
+   color:"white", width: "100%", minHeight: "40px", borderRadius: "8px", padding: "8px",
     transition: "0.2s", outline: "none", boxShadow: "none", fontSize: "16px"
   }}
   onFocus={(e) => e.target.style.boxShadow = "0 0 5px rgba(0,0,255,0.5)"}
@@ -49,6 +49,7 @@ function App() {
   
   <div
         style={{
+          color:"white",
           width: "100%",
           maxHeight: "300px",
           overflowY: "auto",
