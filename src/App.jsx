@@ -25,7 +25,15 @@ function App() {
 
   return (
     <Container sx={{maxWidth:"md",textAlign:'center', p:2}}>
-      <Typography variant="h3" className="bg-blue-500" sx={{ mb: 2 , color:"white"}}>
+      <Typography 
+        variant="h3" 
+        sx={{ 
+          mb: 2, 
+          color:"white",
+          fontWeight: "bold", 
+          animation: "glowText 3s ease-in-out infinite alternate"
+        }}
+      >
         Deep Think
       </Typography>
 
@@ -33,7 +41,7 @@ function App() {
         className="border rounded w-full"
         style={{
           color:"white", width: "100%", minHeight: "40px", borderRadius: "8px", padding: "8px",
-          transition: "0.2s", outline: "none", boxShadow: "none", border:"none",
+          transition: "0.2s", outline: "none", boxShadow: "none",border:"none"
         }}
         onFocus={(e) => e.target.style.boxShadow = "0 0 10px 2px rgba(153, 110, 179, 0.6), 0 0 20px 4px rgba(0, 123, 255, 0.3)"}
         onBlur={(e) => e.target.style.boxShadow = "none"}
@@ -92,6 +100,11 @@ function App() {
             @keyframes fadeOut {
               0% { opacity: 1; box-shadow: 0px 0px 10px rgba(153, 110, 179, 0.8), 0px 0px 20px rgba(0, 123, 255, 0.4); }
               100% { opacity: 1; box-shadow: none; }
+            }
+
+            @keyframes glowText {
+              0% { text-shadow: 0 0 5px rgb(110, 84, 142), 0 0 10px rgb(40, 0, 114); }
+              100% { text-shadow: 0 0 15px rgb(148, 135, 241), 0 0 25px rgb(37, 9, 246); }
             }
           `}
         </style>
