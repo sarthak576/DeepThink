@@ -35,14 +35,14 @@ function App() {
   className="border rounded w-full"
   style={{
    color:"white", width: "100%", minHeight: "40px", borderRadius: "8px", padding: "8px",
-    transition: "0.2s", outline: "none", boxShadow: "none", fontSize: "16px"
+    transition: "0.2s", outline: "none", boxShadow: "none", 
   }}
   onFocus={(e) => e.target.style.boxShadow = "0 0 5px rgba(0,0,255,0.5)"}
   onBlur={(e) => e.target.style.boxShadow = "none"}
   value={question}
   onChange={(e) => setQuestion(e.target.value)}
   onKeyDown={(e) => { if (e.key === "Enter" && !e.shiftKey) { e.preventDefault(); generateAnswer(); }}}
-  placeholder="Ask Me Anything..."
+  placeholder="How Can I Help You Today ?"
 />
  
   <Button onClick={generateAnswer} variant="contained" sx={{ mt: 2,fontWeight: "bold" ,mb:2 }}>Generate </Button>
@@ -60,9 +60,10 @@ function App() {
           fontSize: "18px",
           wordBreak: "break-word",
           lineHeight: "1.6",
+          background:"#171717",
         }}
       >
-        <ReactMarkdown>{answer}</ReactMarkdown>
+        <ReactMarkdown >{answer}</ReactMarkdown>
       </div>
 
   
