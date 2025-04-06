@@ -42,7 +42,7 @@ It is designed for minimal distraction, smooth animations, and intuitive interac
 git clone https://github.com/sarthak576/DeepThink.git
 
 # 2. Navigate into the folder
-cd deepthink
+cd Deepthink
 
 # 3. Install dependencies
 npm install
