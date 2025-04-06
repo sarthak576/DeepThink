@@ -51,8 +51,8 @@ function App() {
         placeholder="How Can I Help You Today ?"
       />
 
-      <Button onClick={generateAnswer} variant="contained" sx={{ mt: 2, fontWeight: "bold", mb: 2 }}>
-        Generate
+      <Button onClick={generateAnswer} variant="outlined" sx={{ mt: 2, fontWeight: "bold", mb: 2 , border:"none"}}>
+      Generate 🚀
       </Button>
 
       <div
@@ -78,7 +78,6 @@ function App() {
         {answer === "Loading..." ? (
           <div style={{ display: 'flex', justifyContent: 'center' }}>
             <DotLottieReact
-              src="https://lottie.host/5916770c-c12a-4772-89ea-fc0242115da7/N0WUnTL4uY.lottie"
               loop
               autoplay
               style={{ height: "120px", width: "120px" }}
